@@ -1,4 +1,5 @@
-require_relative 'helpers'
+require 'active_record'
+require_relative './helpers'
 
 module AnnotateRoutes
   class HeaderGenerator
@@ -16,7 +17,8 @@ module AnnotateRoutes
       private
 
       def routes_map(options)
-        result = `rake routes`.chomp("\n").split("\n", -1)
+        command = ActiveRecord.version.to_s.first.to_i > 5 ? `rails routes` : `rake routes`
+        result = command.chomp("\n").split(/\n/, -1)
 
         # In old versions of Rake, the first line of output was the cwd.  Not so
         # much in newer ones.  We ditch that line if it exists, and if not, we
