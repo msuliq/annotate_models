@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.summary = 'Annotates Rails Models, routes, fixtures, and others based on the database schema.'
 
   s.add_runtime_dependency(%q<rake>, '>= 10.4', '< 14.0')
-  s.add_runtime_dependency(%q<activerecord>, ['>= 3.2', '< 8.0'])
+  s.add_runtime_dependency(%q<activerecord>, ['>= 3.2'])
 
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/ctran/annotate_models/issues/",
